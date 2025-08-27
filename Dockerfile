@@ -17,7 +17,7 @@ RUN mvn clean package -DskipTests
 FROM eclipse-temurin:17-jdk
 WORKDIR /app
 COPY --from=backend-build /app/backend/target/backend.jar ./backend.jar
-COPY --from=frontend-build /app/frontend/build ./static
+COPY --from=frontend-build /app/frontend/dist ./static
 
 # Запуск
 CMD ["java", "-jar", "backend.jar"]
