@@ -16,7 +16,7 @@ RUN mvn clean package -DskipTests
 # 3. Финальный образ с JDK
 FROM eclipse-temurin:17-jdk
 WORKDIR /app
-COPY --from=backend-build /app/backend/target/*.jar ./backend.jar
+COPY --from=backend-build /app/backend/target/backend-0.0.1-SNAPSHOT.jar ./backend.jar
 COPY --from=frontend-build /app/frontend/dist ./static
 
 # Запуск
