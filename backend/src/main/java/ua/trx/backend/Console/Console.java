@@ -19,33 +19,33 @@ public class Console {
     public Console() {
     }
 
-    public void all() {
+    public void all(){
 
         boolean isSigning = false;
 
-        while (!isSigning) {
+        while (!isSigning){
             isSigning = choose();
         }
     }
 
-        private boolean choose() {
-            System.out.println("Sign up or sign out:");
+        private boolean choose(){
+            System.out.println("Sign up or sign up:");
             System.out.println("1");
             System.out.println("2");
 
             String choice = scanner.nextLine();
 
-            switch (choice) {
+            switch (choice){
                 case "1":
-                    return signIn();
+                    return signIN();
                 case "2":
-                    return list();
+                    return sighUP();
                 default:
                     return false;
             }
         }
 
-        private boolean signIn() {
+        private boolean signIN() {
             System.out.println("Sign in:");
 
             System.out.println("Enter username:");
@@ -59,18 +59,18 @@ public class Console {
                 System.out.println("Welcome " + username);
                 return true;
             }else{
-                System.out.println("\nInvalid username or password. Try again.\n");
+                System.out.println("\nTry again.\n");
                 return false;
             }
         }
 
-        private boolean list() {
+        private boolean sighUP() {
             System.out.println("Enter new username:");
             String username = scanner.nextLine();
             System.out.println("Enter new password:");
 
             String password = scanner.nextLine();
-        System.out.println("Sign out:");
-        return true;
+            System.out.println("Sign up:");
+            return true;
         }
 }
