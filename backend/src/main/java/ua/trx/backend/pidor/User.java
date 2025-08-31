@@ -3,7 +3,7 @@ package ua.trx.backend.pidor;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "pidorasi")
+@Table(name = "users")
 
 public class User {
 

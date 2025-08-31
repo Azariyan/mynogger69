@@ -1,9 +1,9 @@
 package ua.trx.backend.Console;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
-import ua.trx.backend.Service.UserGlobal;
-import ua.trx.backend.pidor.User;
+import ua.trx.backend.Service.UserGlobalDB;
 
 import java.util.Scanner;
 
@@ -12,9 +12,11 @@ import java.util.Scanner;
 public class Console {
 
     @Autowired
-    private UserGlobal user;
+    private UserGlobalDB user;
 
     private Scanner scanner = new Scanner(System.in);
+
+    private String currentUsername;
 
     public Console() {
     }
@@ -29,7 +31,7 @@ public class Console {
     }
 
         private boolean choose(){
-            System.out.println("Sign up or sign up:");
+            System.out.println("Sign up or sign in:");
             System.out.println("1");
             System.out.println("2");
 
@@ -37,9 +39,9 @@ public class Console {
 
             switch (choice){
                 case "1":
-                    return signIN();
+                    return signUP();
                 case "2":
-                    return sighUP();
+                    return signIN();
                 default:
                     return false;
             }
@@ -48,29 +50,38 @@ public class Console {
         private boolean signIN() {
             System.out.println("Sign in:");
 
-            System.out.println("Enter username:");
+            System.out.println("enter username:");
             String username = scanner.nextLine();
-            System.out.println("Enter password:");
+            System.out.println("enter password:");
             String password = scanner.nextLine();
 
             boolean authenticated = user.authenticateUser(username, password);
 
             if (authenticated) {
-                System.out.println("Welcome " + username);
+                System.out.println(username);
                 return true;
             }else{
-                System.out.println("\nTry again.\n");
+                System.out.println("\ntry again\n");
                 return false;
             }
         }
 
-        private boolean sighUP() {
+        private boolean signUP() {
             System.out.println("Enter new username:");
             String username = scanner.nextLine();
             System.out.println("Enter new password:");
 
             String password = scanner.nextLine();
-            System.out.println("Sign up:");
-            return true;
+
+            boolean userCreated = user.register(username, password);
+
+            if (userCreated) {
+                System.out.println("\nsuccessful");
+                currentUsername = username;
+                return true;
+            } else {
+                System.out.println("\ntry again\n");
+                return false;
+            }
         }
 }

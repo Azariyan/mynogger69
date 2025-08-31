@@ -5,20 +5,19 @@ import jakarta.persistence.PersistenceContext;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
-import jakarta.persistence.*;
 import ua.trx.backend.pidor.User;
 
 @Service
 @Transactional
 
-public class UserGlobal implements UserService {
+public class UserGlobalDB implements UserServiceDB {
 
     @PersistenceContext
     private EntityManager entityManager;
 
-    public boolean register(String username, String password){
+    public boolean register(String username, String password) {
 
-        if(userExists(username)){
+        if (userExists(username)) {
             System.out.println("Username already exists.");
             return false;
         }
@@ -29,14 +28,14 @@ public class UserGlobal implements UserService {
         return true;
     }
 
-    public boolean userExists(String username){
+    public boolean userExists(String username) {
         Long count = entityManager.createQuery("SELECT COUNT(u) FROM User u WHERE u.username = :username", Long.class)
                 .setParameter("username", username)
                 .getSingleResult();
         return count > 0;
     }
 
-    public boolean authenticateUser(String username, String password){
+    public boolean authenticateUser(String username, String password) {
         Long count = entityManager.createQuery("SELECT COUNT(u) FROM User u WHERE u.username = :username AND u.password = :password", Long.class)
                 .setParameter("username", username)
                 .setParameter("password", password)
