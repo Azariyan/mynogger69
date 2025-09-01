@@ -1,35 +1,59 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import Input from './components/Input/Input.jsx'
-
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [username, setUsername] = useState(''); // исправлено setUsername
+  const [password, setPassword] = useState('');
+  const [response, setResponse] = useState('');
+
+  const handleSubmit = async () => {
+    const data = { username: username, password }; // используем username вместо login
+
+    try {
+      const res = await fetch('http://26.151.207.157:8080/api/register', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      });
+
+      console.log('Отправленные данные:', data);
+      console.log('Тип данных:', typeof data);
+      console.log('Отправленные данные JSON:', JSON.stringify(data));
+
+      const result = await res.json();
+      console.log('Ответ от бэка:', result);
+      setResponse(JSON.stringify(result)); // можно показать результат на фронте
+    } catch (err) {
+      console.error('Ошибка fetch:', err);
+      setResponse('Ошибка соединения');
+    }
+  };
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <Input></Input>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <Input
+        label="Login"
+        value={username}
+        onChange={e => setUsername(e.target.value)}
+        placeholder="Enter your login"
+        type="text"
+        name="login"
+        id="login"
+      />
+      <Input
+        label="Password"
+        value={password}
+        onChange={e => setPassword(e.target.value)}
+        placeholder="Enter your password"
+        type="password"
+        name="password"
+        id="password"
+      />
+      <button onClick={handleSubmit}>Submit</button>
+      {response && <p>Ответ: {response}</p>}
     </>
-  )
+  );
 }
 
-export default App
+export default App;
