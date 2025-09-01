@@ -18,7 +18,6 @@ public class UserGlobalDB implements UserServiceDB {
     public boolean register(String username, String password) {
 
         if (userExists(username)) {
-            System.out.println("Username already exists.");
             return false;
         }
 
