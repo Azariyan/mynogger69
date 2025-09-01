@@ -19,6 +19,6 @@ public class Server {
 
     @Bean
     public UserServiceDB userService1() {
-        return new UserGlobalDB();
+       return new UserGlobalDB();
     }
 }
