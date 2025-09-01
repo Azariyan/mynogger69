@@ -11,7 +11,7 @@ function App() {
     const data = { username: username, password }; // используем username вместо login
 
     try {
-      const res = await fetch('http://26.151.207.157:8080/api/register', {
+      const res = await fetch('https://mynogger69-1.onrender.com/api/register', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data)
