@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="mynoggerdb@localhost" uuid="74d7127f-3319-47c2-96ec-49f25237c310">
+    <data-source source="LOCAL" name="mynoggerdb@localhost" uuid="4d38f49c-5091-4153-be42-a58023a3c46f">
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
