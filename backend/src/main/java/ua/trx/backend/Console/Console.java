@@ -1,12 +1,12 @@
 package ua.trx.backend.Console;
-
+// рОМА АУТИСТ И СІН ШЛЮХИ
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 import ua.trx.backend.Service.UserGlobalDB;
 
 import java.util.Scanner;
-
+// рОМА АУТИСТ И СІН ШЛЮХИ
 @Component
 
 public class Console {

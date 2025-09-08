@@ -5,3 +5,4 @@ public interface UserServiceDB {
     boolean userExists(String username);
     boolean authenticateUser(String username, String password);
 }
+// рОМА АУТИСТ И СІН ШЛЮХИ

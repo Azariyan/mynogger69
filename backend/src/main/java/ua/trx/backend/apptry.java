@@ -23,17 +23,17 @@ public class apptry {
     public static void main(String[] args) {
         new SpringApplicationBuilder(apptry.class).web(WebApplicationType.NONE).run(args);
     }
-
+    // рОМА АУТИСТ И СІН ШЛЮХИ
     @Bean
     public CommandLineRunner runner(Console aue) {
         return args -> aue.all();
     }
-
+    // рОМА АУТИСТ И СІН ШЛЮХИ
     @Bean
     public Console console() {
         return new Console();
     }
-
+    // рОМА АУТИСТ И СІН ШЛЮХИ
     @Bean
     public UserServiceDB userService() {
         return new UserGlobalDB();

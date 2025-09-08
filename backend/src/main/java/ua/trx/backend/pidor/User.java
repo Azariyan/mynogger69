@@ -18,7 +18,7 @@ public class User {
     private String password;
 
     public User() {
-
+        // рОМА АУТИСТ И СІН ШЛЮХИ
     }
 
     public String getUsername() {
