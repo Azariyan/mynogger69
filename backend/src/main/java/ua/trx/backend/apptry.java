@@ -16,7 +16,6 @@ import ua.trx.backend.Service.UserServiceDB;
 
 @SpringBootApplication
 @EntityScan("ua.trx.backend.pidor")
-@Configuration
 
 @ComponentScan(excludeFilters = @ComponentScan.Filter(type = FilterType.REGEX, pattern = "ua.trx.backend.server.*"))
 
@@ -38,5 +37,10 @@ public class apptry {
     @Bean
     public UserServiceDB userService(PasswordEncoder passwordEncoder) {
         return new UserGlobalDB(passwordEncoder);
+    }
+
+    @Bean
+    public PasswordEncoder testEncoderBean() {
+        return new org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder();
     }
 }

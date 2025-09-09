@@ -12,10 +12,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import ua.trx.backend.Service.UserGlobalDB;
 import ua.trx.backend.Service.UserServiceDB;
 
-@SpringBootApplication(exclude = {
-        org.springframework.boot.autoconfigure.security.reactive.ReactiveUserDetailsServiceAutoConfiguration.class
-})
-
+@SpringBootApplication
 @Configuration
 @EntityScan("ua.trx.backend.pidor")
 
@@ -27,11 +24,6 @@ public class Server {
     @Bean
     public UserServiceDB userService1(PasswordEncoder passwordEncoder) {
        return new UserGlobalDB(passwordEncoder);
-    }
-
-    @Bean
-    public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
     }
 
     @Configuration
