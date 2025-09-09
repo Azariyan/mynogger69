@@ -1,0 +1,36 @@
+.cta-button {
+  display: inline-block;
+  padding: 16px 40px;
+  background: linear-gradient(135deg, #faffa3, #696eff);
+  color: #000;
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  box-shadow: 0 4px 15px rgba(224, 163, 255, 0.2);
+
+  opacity: 0;
+  animation: buttonSlideUp 1.2s ease 0.5s forwards;
+
+  &:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 14px 100px rgba(154, 245, 255, 0.3);
+      color: #000000;
+  }
+}
+
+@keyframes buttonSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
