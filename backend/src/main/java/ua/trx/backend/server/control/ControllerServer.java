@@ -18,7 +18,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/api")
-@CrossOrigin(origins = "*") // временно, можно ограничить IP фронта
+@CrossOrigin(origins = "*")
 public class ControllerServer {
 
     private final UserServiceDB userService;
