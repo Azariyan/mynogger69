@@ -3,12 +3,12 @@ import Input from '../components/Input/Input.jsx'
 import '../App.css'
 
 function Main() {
-  const [username, setUsername] = useState(''); // исправлено setUsername
+  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [response, setResponse] = useState('');
 
   const handleSubmit = async () => {
-    const data = { username: username, password }; // используем username вместо login
+    const data = { username: username, password };
 
     try {
       const res = await fetch('https://mynogger69-1.onrender.com/api/register', {

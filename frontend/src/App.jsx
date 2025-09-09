@@ -1,3 +1,4 @@
+import React from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Main from "./pages/Main";
 
@@ -14,3 +15,5 @@ function App() {
     </Router>
   );
 }
+
+export default App;
