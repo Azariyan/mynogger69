@@ -6,7 +6,7 @@ function App() {
   return (
     <Router>
       <nav>
-        <Link to="/">Главная</Link>
+        <Link to="/">Home</Link>
       </nav>
 
       <Routes>
