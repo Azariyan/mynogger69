@@ -34,7 +34,7 @@ public class Server {
                 @Override
                 public void addCorsMappings(CorsRegistry registry) {
                     registry.addMapping("/**")
-                            .allowedOrigins("http://26.192.100.212")
+                            .allowedOrigins("http://26.192.100.212:5173")
                             .allowedMethods("GET", "POST", "PUT", "DELETE");
                 }
             };
