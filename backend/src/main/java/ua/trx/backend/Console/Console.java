@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 import ua.trx.backend.Service.UserGlobalDB;
 
 import java.util.Scanner;
-// рОМА АУТИСТ И СІН ШЛЮХИ
+
 @Component
 
 public class Console {

@@ -9,6 +9,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.FilterType;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import ua.trx.backend.Console.Console;
 import ua.trx.backend.Service.UserGlobalDB;
 import ua.trx.backend.Service.UserServiceDB;
@@ -23,19 +24,19 @@ public class apptry {
     public static void main(String[] args) {
         new SpringApplicationBuilder(apptry.class).web(WebApplicationType.NONE).run(args);
     }
-    // рОМА АУТИСТ И СІН ШЛЮХИ
+
     @Bean
     public CommandLineRunner runner(Console aue) {
         return args -> aue.all();
     }
-    // рОМА АУТИСТ И СІН ШЛЮХИ
+
     @Bean
     public Console console() {
         return new Console();
     }
-    // рОМА АУТИСТ И СІН ШЛЮХИ
+
     @Bean
-    public UserServiceDB userService() {
-        return new UserGlobalDB();
+    public UserServiceDB userService(PasswordEncoder passwordEncoder) {
+        return new UserGlobalDB(passwordEncoder);
     }
 }

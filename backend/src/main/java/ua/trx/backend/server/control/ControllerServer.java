@@ -36,8 +36,6 @@ public class ControllerServer {
         }
     }
 
-    // рОМА АУТИСТ И СІН ШЛЮХИ
-
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody User user) {
         if (userService.authenticateUser(user.getUsername(), user.getPassword())) {
