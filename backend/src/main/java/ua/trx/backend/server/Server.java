@@ -12,7 +12,10 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import ua.trx.backend.Service.UserGlobalDB;
 import ua.trx.backend.Service.UserServiceDB;
 
-@SpringBootApplication
+@SpringBootApplication(exclude = {
+        org.springframework.boot.autoconfigure.security.reactive.ReactiveUserDetailsServiceAutoConfiguration.class
+})
+
 @Configuration
 @EntityScan("ua.trx.backend.pidor")
 
